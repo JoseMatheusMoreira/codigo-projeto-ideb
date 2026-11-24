@@ -17,8 +17,7 @@ OUTPUT_PATH = PROJECT_ROOT / "data" / "processed" / "censo_escolar_2024_colunas_
 VALIDATION_PATH = PROJECT_ROOT / "results" / "censo_escolar_2024_validacao.json"
 CHUNK_SIZE = 25_000
 
-# Seleção baseada na proposta: oferta educacional, infraestrutura, internet,
-# saneamento, matrículas, docentes e turmas dos anos iniciais.
+# Colunas de oferta educacional, infraestrutura, tecnologia e anos iniciais.
 SELECTED_COLUMNS = [
     "NU_ANO_CENSO",
     "SG_UF",
@@ -90,8 +89,7 @@ def validate_and_filter(
     status_values = set()
     fund_ai_values = set()
 
-    # Leitura completa em blocos para validar o formato do CSV sem carregar
-    # as 426 colunas na memória de uma só vez.
+    # Validação em blocos para evitar carregar o arquivo completo na memória.
     try:
         for chunk in pd.read_csv(
             source_path,
@@ -163,8 +161,7 @@ def validate_and_filter(
             f"{VALIDATION_PATH} antes de continuar."
         )
 
-    # Segunda passagem: somente seleção de colunas. Nenhum valor é convertido,
-    # imputado, excluído ou recodificado nesta etapa.
+    # Segunda passagem: grava apenas as colunas selecionadas, sem recodificação.
     first_chunk = True
     written_rows = 0
     for chunk in pd.read_csv(
