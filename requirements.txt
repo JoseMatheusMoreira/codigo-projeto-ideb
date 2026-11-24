@@ -1,0 +1,8 @@
+pandas
+matplotlib
+openpyxl
+jupyterlab
+nbformat
+nbclient
+ipykernel
+scikit-learn

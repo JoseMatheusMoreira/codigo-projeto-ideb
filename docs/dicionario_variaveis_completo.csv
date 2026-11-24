@@ -1,0 +1,36 @@
+﻿nome_final,fonte,ano,conceito,tipo,unidade_final,agregacao,pode_entrar_X,observacao
+CO_MUNICIPIO,INEP/IBGE,—,Código IBGE do município,identificador,município,chave,não,padronizado como texto de 7 dígitos
+VL_OBSERVADO_2023,IDEB/INEP,2023,IDEB observado dos anos iniciais da rede municipal,numérico,pontos de IDEB,valor original,sim,histórico
+VL_OBSERVADO_2025,IDEB/INEP,2025,IDEB observado dos anos iniciais da rede municipal,numérico,pontos de IDEB,alvo,não,usado somente como y
+SG_UF,Censo/IDEB,2024,Nome ou unidade federativa do município,categórico,texto,identificação,não,fora da primeira versão do modelo
+NO_MUNICIPIO_x,Censo/IDEB,2024,Nome ou unidade federativa do município,categórico,texto,identificação,não,fora da primeira versão do modelo
+n_escolas,Censo Escolar/INEP,2024,Número de escolas municipais ativas com anos iniciais,contagem,escolas,contagem única de CO_ENTIDADE,sim,agregado por município
+total_matriculas_fund_ai,Censo Escolar/INEP,2024,Total de matrículas dos anos iniciais,contagem,matrículas,soma,sim,agregado por município
+media_matriculas_fund_ai,Censo Escolar/INEP,2024,Média de matrículas dos anos iniciais por escola,contagem resumida,matrículas/escola,média,sim,agregado por município
+mediana_matriculas_fund_ai,Censo Escolar/INEP,2024,Média de matrículas dos anos iniciais por escola,contagem resumida,matrículas/escola,média,sim,agregado por município
+prop_rural,Censo Escolar/INEP,2024,Proporção de escolas rurais,proporção,0 a 1,média lógica de localização rural,sim,TP_LOCALIZACAO=2
+prop_localizacao_diferenciada,Censo Escolar/INEP,2024,Proporção de escolas em localização diferenciada,proporção,0 a 1,proporção de código diferente de zero,sim,agregado por município
+prop_in_agua_potavel,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_AGUA_POTAVEL,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_AGUA_POTAVEL
+prop_in_agua_rede_publica,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_AGUA_REDE_PUBLICA,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_AGUA_REDE_PUBLICA
+prop_in_energia_rede_publica,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_ENERGIA_REDE_PUBLICA,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_ENERGIA_REDE_PUBLICA
+prop_in_esgoto_rede_publica,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_ESGOTO_REDE_PUBLICA,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_ESGOTO_REDE_PUBLICA
+prop_in_esgoto_fossa_septica,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_ESGOTO_FOSSA_SEPTICA,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_ESGOTO_FOSSA_SEPTICA
+prop_in_lixo_servico_coleta,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_LIXO_SERVICO_COLETA,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_LIXO_SERVICO_COLETA
+prop_in_banheiro,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_BANHEIRO,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_BANHEIRO
+prop_in_biblioteca,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_BIBLIOTECA,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_BIBLIOTECA
+prop_in_laboratorio_ciencias,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_LABORATORIO_CIENCIAS,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_LABORATORIO_CIENCIAS
+prop_in_laboratorio_informatica,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_LABORATORIO_INFORMATICA,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_LABORATORIO_INFORMATICA
+prop_in_quadra_esportes,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_QUADRA_ESPORTES,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_QUADRA_ESPORTES
+prop_in_quadra_esportes_coberta,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_QUADRA_ESPORTES_COBERTA,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_QUADRA_ESPORTES_COBERTA
+prop_in_sala_leitura,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_SALA_LEITURA,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_SALA_LEITURA
+prop_in_computador,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_COMPUTADOR,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_COMPUTADOR
+prop_in_equip_multimidia,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_EQUIP_MULTIMIDIA,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_EQUIP_MULTIMIDIA
+prop_in_internet,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_INTERNET,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_INTERNET
+prop_in_internet_alunos,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_INTERNET_ALUNOS,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_INTERNET_ALUNOS
+prop_in_internet_administrativo,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_INTERNET_ADMINISTRATIVO,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_INTERNET_ADMINISTRATIVO
+prop_in_internet_aprendizagem,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_INTERNET_APRENDIZAGEM,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_INTERNET_APRENDIZAGEM
+prop_in_banda_larga,Censo Escolar/INEP,2024,Proporção de escolas com o atributo IN_BANDA_LARGA,proporção,0 a 1,média de indicador 0/1,sim,origem: IN_BANDA_LARGA
+NO_MUNICIPIO_y,Censo/IDEB,2024,Nome ou unidade federativa do município,categórico,texto,identificação,não,fora da primeira versão do modelo
+PIB_2023_mil_reais,IBGE/SIDRA,2023,PIB municipal a preços correntes,numérico,mil reais,valor municipal,sim,fonte SIDRA 5938
+POPULACAO_2022,IBGE/SIDRA,2022,População residente do município,contagem,pessoas,valor municipal,sim,"Censo 2022, SIDRA 9514"
+PIB_PER_CAPITA_2023_APROX,IBGE/SIDRA,2023,PIB municipal a preços correntes,numérico,mil reais,valor municipal,sim,fonte SIDRA 5938

@@ -1,0 +1,13 @@
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+.ipython/
+.jupyter/
+*.pyc
+
+# Dados grandes ou potencialmente não redistribuíveis
+data/raw/*
+data/processed/*
+
+# Saídas geradas localmente
+results/*
