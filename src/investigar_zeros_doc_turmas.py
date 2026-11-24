@@ -2,13 +2,17 @@
 
 from pathlib import Path
 import json
+import os
 
 import pandas as pd
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SOURCE_PATH = Path(
-    r"C:\Users\usuario\Desktop\microdados_censo_escolar_2024_defeso\dados\microdados_ed_basica_2024.csv"
+    os.environ.get(
+        "CENSO_ESCOLAR_PATH",
+        PROJECT_ROOT / "data" / "raw" / "microdados_ed_basica_2024.csv",
+    )
 )
 RESULTS_DIR = PROJECT_ROOT / "results"
 PROFILE_PATH = RESULTS_DIR / "zeros_doc_turmas_por_grupo.csv"

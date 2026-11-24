@@ -5,13 +5,17 @@ Esta etapa não trata valores nulos nem filtra linhas. O arquivo bruto não é a
 
 from pathlib import Path
 import json
+import os
 
 import pandas as pd
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SOURCE_PATH = Path(
-    r"C:\Users\usuario\Desktop\microdados_censo_escolar_2024_defeso\dados\microdados_ed_basica_2024.csv"
+    os.environ.get(
+        "CENSO_ESCOLAR_PATH",
+        PROJECT_ROOT / "data" / "raw" / "microdados_ed_basica_2024.csv",
+    )
 )
 OUTPUT_PATH = PROJECT_ROOT / "data" / "processed" / "censo_escolar_2024_colunas_relevantes.csv"
 VALIDATION_PATH = PROJECT_ROOT / "results" / "censo_escolar_2024_validacao.json"
