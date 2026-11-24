@@ -38,9 +38,13 @@ Eles foram convertidos para zero por uma regra estrutural de não aplicabilidade
 sem alterar as demais colunas.
 
 Os zeros simultâneos em `QT_DOC_FUND_AI` e `QT_TUR_FUND_AI` foram mantidos. Eles
-ocorreram em 12.013 escolas, com forte concentração em escolas rurais, e não
-foram imputados porque a causa não foi estabelecida com segurança. Essas duas
-variáveis ficaram fora da primeira agregação municipal.
+ocorreram em 12.013 escolas, com forte concentração em escolas rurais. Conforme
+a regra de declaração considerada para escolas multisseriadas, esses zeros são
+valores válidos usados para evitar duplicação de docentes e turmas entre etapas;
+não representam automaticamente ausência de profissionais ou de classes.
+Portanto, não foram imputados nem convertidos para nulos. Essas duas variáveis
+ficaram fora da primeira agregação municipal para evitar interpretar os zeros
+sem aplicar explicitamente a regra de declaração no cálculo municipal.
 
 ## Agregação municipal
 
@@ -68,3 +72,62 @@ R² 0,688.
 Os indicadores educacionais adicionais do INEP ficaram fora da primeira versão
 porque sua inclusão exigiria confirmar granularidade, chave municipal e regras
 de agregação compatíveis.
+
+## Critérios de escolha das variáveis
+
+As variáveis foram selecionadas considerando quatro critérios:
+
+1. disponibilidade até 2024;
+2. possibilidade de conversão para uma linha por município;
+3. relação plausível com oferta educacional, condições escolares ou contexto
+   socioeconômico;
+4. capacidade de explicar claramente o significado e o tratamento da variável.
+
+O IDEB 2023 foi escolhido como histórico do próprio município. As variáveis do
+Censo foram escolhidas para representar tamanho da rede, matrículas,
+localização, infraestrutura física e conectividade. As variáveis do IBGE foram
+incluídas para representar contexto econômico e demográfico.
+
+Não foram usadas como preditoras as colunas de identificação, nomes dos
+municípios ou o código `CO_MUNICIPIO`. O IDEB 2025 aparece exclusivamente como
+alvo.
+
+## Regras de agregação
+
+O Censo Escolar possui uma linha por escola, mas o IDEB usado no projeto possui
+uma linha por município. Por isso, as variáveis foram agregadas conforme sua
+natureza:
+
+- indicadores `IN_*` binários: média, interpretada como proporção de escolas
+  com o recurso;
+- localização: proporção de escolas rurais ou em localização diferenciada;
+- `CO_ENTIDADE`: contagem de escolas únicas;
+- `QT_MAT_FUND_AI`: soma, média e mediana das matrículas;
+- docentes e turmas: mantidos fora da primeira agregação municipal enquanto a
+  regra de declaração multisseriada não for aplicada de maneira específica.
+
+Não foi aplicada uma média genérica a todas as colunas.
+
+## Controle temporal e leakage
+
+As entradas do modelo possuem as seguintes referências:
+
+- IDEB histórico: 2023;
+- Censo Escolar: 2024;
+- PIB: 2023;
+- população: 2022.
+
+O IDEB 2025 é usado somente como `y`. Também foram preservados conjuntos de
+treino, validação e teste separados. Imputação e padronização, quando
+necessárias, são aprendidas dentro do pipeline e somente com os dados de
+treinamento.
+
+## Resultados preliminares
+
+A base final possui 5.196 municípios. A primeira comparação utilizou baseline
+da média, Ridge, Random Forest e HistGradientBoosting. A configuração inicial
+com melhor desempenho foi a Ridge usando o IDEB 2023 e as variáveis do Censo,
+com MAE de aproximadamente 0,360, RMSE de 0,488 e R² de 0,688 no teste.
+
+Esse resultado é preliminar e não deve ser interpretado como causalidade. Ele
+indica apenas o desempenho preditivo observado no protocolo definido.
